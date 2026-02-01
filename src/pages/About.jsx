@@ -1,39 +1,83 @@
 import Section from '../components/SectionWrapper.jsx'
 
-export default function About(){
+const styles = {
+  card: {
+    padding: 22,
+    maxWidth: 980,
+    lineHeight: 1.7,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 14,
+  },
+  p: {
+    margin: 0,
+  },
+  heading: {
+    margin: '10px 0 0',
+    fontSize: 16,
+    fontWeight: 700,
+    letterSpacing: 0.2,
+  },
+  ul: {
+    margin: 0,
+    paddingLeft: 18,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+  },
+  mute: {
+    marginTop: 6,
+  },
+}
+
+export default function About() {
   return (
     <Section title="About" subtitle="A brief intro">
-      <div className="card" style={{padding:22}}>
-        <p>
-          I am a 𝑹𝒆𝒄𝒆𝒏𝒕 𝑴𝒂𝒔𝒕𝒆𝒓’𝒔 𝑮𝒓𝒂𝒅𝒖𝒂𝒕𝒆 𝒊𝒏 𝑫𝒂𝒕𝒂 𝑺𝒄𝒊𝒆𝒏𝒄𝒆 & 𝑨𝒑𝒑𝒍𝒊𝒄𝒂𝒕𝒊𝒐𝒏𝒔 (𝑮𝑷𝑨 3.9) at the 𝑼𝒏𝒊𝒗𝒆𝒓𝒔𝒊𝒕𝒚 𝒂𝒕 𝑩𝒖𝒇𝒇𝒂𝒍𝒐 (𝑫𝒆𝒄 2025) with 2.5+ 𝒚𝒆𝒂𝒓𝒔 𝒂𝒕 𝑻𝒂𝒕𝒂 𝑪𝒐𝒏𝒔𝒖𝒍𝒕𝒂𝒏𝒄𝒚 𝑺𝒆𝒓𝒗𝒊𝒄𝒆𝒔 (𝑻𝑪𝑺) as a 𝑫𝒂𝒕𝒂 𝑨𝒏𝒂𝒍𝒚𝒔𝒕, 𝑩𝒊𝒈 𝑫𝒂𝒕𝒂 𝑷𝒚𝒕𝒉𝒐𝒏 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓, 𝒂𝒏𝒅 𝑨𝑰 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓, along with a client-facing capstone engagement with 𝑴𝒆𝒅𝒊𝒂𝑺𝒂𝒍𝒆𝒔 𝑷𝒍𝒖𝒔.<br />
-
-My expertise lies in 𝒅𝒂𝒕𝒂 𝒆𝒏𝒈𝒊𝒏𝒆𝒆𝒓𝒊𝒏𝒈 𝒂𝒏𝒅 𝑴𝑳 𝒔𝒚𝒔𝒕𝒆𝒎𝒔 - building 𝒔𝒄𝒂𝒍𝒂𝒃𝒍𝒆 𝒑𝒊𝒑𝒆𝒍𝒊𝒏𝒆𝒔, 𝒓𝒆𝒍𝒊𝒂𝒃𝒍𝒆 𝑬𝑻𝑳/𝒔𝒕𝒓𝒆𝒂𝒎𝒊𝒏𝒈 𝒘𝒐𝒓𝒌𝒇𝒍𝒐𝒘𝒔, 𝒂𝒏𝒅 𝒑𝒓𝒐𝒅𝒖𝒄𝒕𝒊𝒐𝒏-𝒈𝒓𝒂𝒅𝒆 𝒅𝒆𝒑𝒍𝒐𝒚𝒎𝒆𝒏𝒕𝒔 across distributed platforms and applied analytics.<br />
-
-At 𝑻𝒂𝒕𝒂 𝑪𝒐𝒏𝒔𝒖𝒍𝒕𝒂𝒏𝒄𝒚 𝑺𝒆𝒓𝒗𝒊𝒄𝒆𝒔 (𝑻𝑪𝑺), I:<br />
-🔹 Designed and deployed end-to-end ML pipelines using PySpark, TensorFlow, and PyTorch, improving deployment efficiency by 28% and increasing classification accuracy by 15%.<br />
-🔹 Optimized distributed workflows with Cloudera, Kafka, HDFS, and Kudu, reducing query latency by 40% and improving data reliability.<br />
-🔹 Managed and tuned distributed jobs (Spark/Flink) in production environments to improve processing performance and stability.<br />
-🔹 Supported production-grade deployments with Kubernetes, ensuring 99.9% uptime with robust debugging and model evaluation practices.<br />
-
-At 𝑼𝒏𝒊𝒗𝒆𝒓𝒔𝒊𝒕𝒚 𝒂𝒕 𝑩𝒖𝒇𝒇𝒂𝒍𝒐, I strengthened expertise in:<br />
-🔹 Data Engineering / ML Infrastructure - deployment, evaluation, optimization, debugging, pipeline reliability.<br />
-🔹 Statistical Data Mining & Applied ML - modeling, feature engineering, and evaluation using real-world datasets.<br />
-🔹 Projects including Spark streaming pipelines (checkpoint recovery), graph algorithms (Dijkstra in PySpark), and graph analytics with Neo4j.<br />
-
-At 𝑴𝒆𝒅𝒊𝒂𝑺𝒂𝒍𝒆𝒔 𝑷𝒍𝒖𝒔 (CDA 500 Capstone), I:<br />
-🔹 Built an end-to-end analytics pipeline to automate recurring reporting from monthly CSV/Excel datasets across business units.<br />
-🔹 Implemented data standardization + quality validation checks and delivered a Streamlit KPI dashboard with trend/anomaly views and forecasting summaries.<br />
-
-💡 𝑺𝒆𝒆𝒌𝒊𝒏𝒈 𝒇𝒖𝒍𝒍-𝒕𝒊𝒎𝒆 𝒓𝒐𝒍𝒆𝒔 (𝑱𝒂𝒏 2026) in Data Science / Data Engineering / Analytics Engineering / Machine Learning Engineering | Available immediately | F-1 OPT (STEM) - open to roles where I can build reliable pipelines and scalable ML systems in production.
+      <div className="card" style={styles.card}>
+        <p style={styles.p}>
+          I am a <strong>Recent Master’s Graduate</strong> in <em>Data Science &amp; Applications</em> (GPA 3.9) at the <strong>University at Buffalo</strong> (Dec 2025) with 2.5+ years at <strong>Tata Consultancy Services (TCS)</strong> as a Data Analyst, Big Data Python Developer, and AI Developer, along with a client-facing capstone engagement with <strong>MediaSales Plus</strong>.
         </p>
-        <p className="mute">
+
+        <p style={styles.p}>
+          My expertise lies in <strong>data engineering</strong> and <strong>ML systems</strong> — building scalable pipelines, reliable ETL/streaming workflows, and production-grade deployments across distributed platforms and applied analytics.
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div>
+            <div style={styles.heading}>At Tata Consultancy Services (TCS)</div>
+            <ul style={styles.ul}>
+              <li>Designed and deployed end-to-end ML pipelines using PySpark, TensorFlow, and PyTorch, improving deployment efficiency by 28% and increasing classification accuracy by 15%.</li>
+              <li>Optimized distributed workflows with Cloudera, Kafka, HDFS, and Kudu, reducing query latency by 40% and improving data reliability.</li>
+              <li>Managed and tuned distributed jobs (Spark/Flink) in production environments to improve processing performance and stability.</li>
+              <li>Supported production-grade deployments with Kubernetes, ensuring 99.9% uptime with robust debugging and model evaluation practices.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style={styles.heading}>At University at Buffalo</div>
+            <ul style={styles.ul}>
+              <li>Data Engineering / ML Infrastructure — deployment, evaluation, optimization, debugging, pipeline reliability.</li>
+              <li>Statistical Data Mining &amp; Applied ML — modeling, feature engineering, and evaluation using real-world datasets.</li>
+              <li>Projects: Spark streaming pipelines (checkpoint recovery), graph algorithms (Dijkstra in PySpark), and graph analytics with Neo4j.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style={styles.heading}>At MediaSales Plus (CDA 500 Capstone)</div>
+            <ul style={styles.ul}>
+              <li>Built an end-to-end analytics pipeline to automate recurring reporting from monthly CSV/Excel datasets across business units.</li>
+              <li>Implemented data standardization + quality validation checks and delivered a Streamlit KPI dashboard with trend/anomaly views and forecasting summaries.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="mute" style={{ ...styles.p, ...styles.mute }}>
+          <strong>Seeking full-time roles</strong> (Jan 2026) in Data Science / Data Engineering / Analytics Engineering / Machine Learning Engineering | Available immediately | F-1 OPT (STEM)
+        </p>
+
+        <p style={{ ...styles.p, opacity: 0.85 }}>
           Machine Learning Engineer | Data Engineer | MS in Data Science @ SUNY Buffalo | Ex-TCS | Building Scalable AI Systems
         </p>
-        <ul style={{ marginTop: 14, paddingLeft: 18, lineHeight: 1.7 }}>
-          <li>Data Engineering: ETL/ELT, orchestration, reliability, and performance tuning</li>
-          <li>ML Engineering: training → deployment → monitoring with production constraints</li>
-          <li>Distributed systems: Spark pipelines, streaming workflows, and scalable infrastructure</li>
-        </ul>
       </div>
     </Section>
   )
