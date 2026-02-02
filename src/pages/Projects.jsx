@@ -9,7 +9,7 @@ import Section from '../components/SectionWrapper.jsx'
 
 const shipped = [
   {
-    name: "Distributed Systems Workflow Optimizer (Spark)",
+    name: "Production-Grade ML/Streaming Systems Reliability (PySpark + Structured Streaming)",
     description:
       "Spark-based distributed workflow optimizer: (1) PySpark Dijkstra shortest paths for graph analytics, and (2) fault-tolerant Structured Streaming WordCount with checkpoint recovery.",
     stack: ["PySpark", "Spark Structured Streaming", "Checkpointing", "Graph Algorithms"],
@@ -114,7 +114,22 @@ function TiltCard({ children }) {
 export default function Projects() {
   return (
     <Section title="Projects" subtitle="Selected work + what I’m building next">
-      {/* Shipped */}
+      {/* ✅ This line is guaranteed visible (doesn't rely on .mute styles) */}
+      <div
+        style={{
+          maxWidth: 860,
+          margin: "0 0 18px 0",
+          opacity: 0.9,
+          lineHeight: 1.6,
+          fontSize: "0.98rem"
+        }}
+      >
+        These projects reflect my self-driven learning journey — starting from foundational
+        machine learning implementations and advancing toward scalable, distributed, and
+        production-grade AI systems.
+      </div>
+
+      {/* Shipped projects */}
       <div className="grid two">
         {shipped.map((p, i) => (
           <TiltCard key={i}>
@@ -136,11 +151,11 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* In Progress */}
+      {/* In progress */}
       <div style={{ marginTop: 26 }}>
         <h3 style={{ marginBottom: 8 }}>In Progress</h3>
         <p className="mute" style={{ marginTop: 0 }}>
-          Actively building these this week—shipping demos + writeups as they stabilize.
+          Building these now—shipping demos + writeups as they stabilize.
         </p>
 
         <div className="grid two">
@@ -166,7 +181,7 @@ export default function Projects() {
                   </a>
                 ) : (
                   <span className="mute" style={{ fontSize: 14 }}>
-                    Link will be added after first stable release.
+                    Link will be added after the first stable release.
                   </span>
                 )}
               </div>
