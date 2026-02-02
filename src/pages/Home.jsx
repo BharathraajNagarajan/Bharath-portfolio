@@ -116,8 +116,7 @@ export default function Home(){
             className="mute"
             style={{ marginTop: 10, fontSize: 14 }}
           >
-            Currently building end-to-end ML pipelines, RAG systems,
-            and model monitoring workflows.
+            Currently building end-to-end ML pipelines, RAG systems, and model monitoring workflows for production use.
           </p>
         </div>
 
@@ -136,7 +135,7 @@ export default function Home(){
               aspectRatio: '1 / 1',
               borderRadius: '50%',
               objectFit: 'cover',
-              border: '4px solid var(--surface)'
+              border: '2px solid var(--surface)'
             }}
           />
         </motion.div>
