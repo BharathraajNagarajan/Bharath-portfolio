@@ -4,22 +4,24 @@ const schools = [
   {
     name: "University at Buffalo, The State University of New York",
     degree: "Masters in Data Sciences and Applications (GPA: 3.9/4.0)",
-    when: "Aug 2024 — Dec 2025",
+    when: "Aug 2024 - Dec 2025",
     location: "Buffalo, NY, USA",
     mode: "On-campus",
     details: [
       "Coursework: Database Management Structure, Data Intensive Computing, Machine Learning, Data Modeling, Cybersecurity",
       "Industry Capstone (CDA 500): Client-facing MVP with MediaSales Plus",
-      "Graduate Assistant : EAS 230 – Engineering Computations (MATLAB/DSA)"
+      "Graduate Assistant: EAS 230 – Engineering Computations (MATLAB/DSA)"
     ]
   },
   {
     name: "Anna University - Sri Sivasubramaniya Nadar College of Engineering",
     degree: "Bachelor of Engineering, Minor in Computer Science",
-    when: "Aug 2017 — May 2021",
+    when: "Aug 2017 - May 2021",
     location: "Chennai, India",
     mode: "Full-time",
-    details: []
+    details: [
+      "Activities: Department Coordinator, IEEE Student Body (Secretary), NSS."      
+    ]
   }
 ]
 
@@ -44,16 +46,19 @@ export default function Education() {
               e.currentTarget.style.setProperty('--rx', '0deg')
             }}
           >
-            {/* Top row: School (left) + Dates (right) */}
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: 14 }}>
               <h3 style={{ marginBottom: 4, marginTop: 0 }}>{s.name}</h3>
               <p className="mute" style={{ margin: 0, whiteSpace: 'nowrap' }}>{s.when}</p>
             </div>
 
-            {/* Degree line */}
             <p style={{ margin: 0 }}>{s.degree}</p>
 
-            {/* Details bullets */}
+            {s.location && s.mode && (
+              <p className="mute" style={{ marginTop: 4, marginBottom: 0 }}>
+                {s.location} • {s.mode}
+              </p>
+            )}
+
             {s.details && s.details.length > 0 && (
               <ul style={{ marginTop: 8, paddingLeft: 20, marginBottom: 0 }}>
                 {s.details.map((detail, index) => (
