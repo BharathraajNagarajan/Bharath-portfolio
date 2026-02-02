@@ -3,9 +3,24 @@ import { motion } from 'framer-motion'
 
 const roles = [
   {
-    role: "Systems Engineer — Machine Learning / Big Data AI",
+    role: "Data Engineering Intern - Analytics",
+    company: "Media Sales Plus Inc.",
+    duration: "Aug 2025 — Dec 2025 · 5 mos",
+    location: "New York, USA",
+    stack: "Python • Prediction Models • Azure • GitHub Actions • ETL • NLP",
+    bullets: [
+      "Developed an executive-facing Streamlit analytics platform with KPI monitoring, anomaly detection, and ARIMA-based forecasting for recurring financial reporting.",
+      "Built Python ETL pipelines to ingest, validate, aggregate, and backfill client datasets, standardizing schemas for analytics and ML-driven insights.",
+      "Implemented CI/CD using GitHub Actions and integrated workflows with Azure services to enable secure, repeatable deployments.",
+      "Built a rule-based NLP chatbot interface to translate natural-language business questions into computed metrics within the analytics application."
+    ]
+  },
+  {
+    role: "SYSTEMS ENGINEER - Machine Learning / Big Data AI",
     company: "Tata Consultancy Services",
-    duration: "Oct 2021 — Apr 2024 · 2 yrs 7 mos",
+    client: "Lloyds Banking Group (UK)",
+    duration: "Oct 2021 - Apr 2024 · 2 yrs 7 mos",
+    location: "India",
     stack: "PyTorch • TensorFlow • Spark/PySpark • Kafka • Kubernetes • AWS • Azure • GCP",
     bullets: [
       "Developed and deployed transformer-based NLP and sequence-to-sequence models in PyTorch, improving predictive accuracy by 18% across enterprise-scale use cases.",
@@ -14,18 +29,6 @@ const roles = [
       "Built scalable data and feature pipelines using Kafka, HDFS, HBase, and Kudu, reducing query latency by 40% in high-throughput ML workloads.",
       "Optimized PySpark and Spark SQL pipelines for model data preparation and batch workflows, reducing ETL processing time by 47% through execution tuning.",
       "Collaborated with cross-functional stakeholders to translate business requirements into production ML solutions using BigQuery, Scikit-learn, Azure, and Airflow."
-    ]
-  },
-  {
-    role: "Data Engineering Intern — Analytics",
-    company: "Media Sales Plus Inc.",
-    duration: "Aug 2025 — Dec 2025 · 5 mos",
-    stack: "Python • Streamlit • Azure • GitHub Actions • ETL • NLP",
-    bullets: [
-      "Developed an executive-facing Streamlit analytics platform with KPI monitoring, anomaly detection, and ARIMA-based forecasting for recurring financial reporting.",
-      "Built Python ETL pipelines to ingest, validate, aggregate, and backfill client datasets, standardizing schemas for analytics and ML-driven insights.",
-      "Implemented CI/CD using GitHub Actions and integrated workflows with Azure services to enable secure, repeatable deployments.",
-      "Built a rule-based NLP chatbot interface to translate natural-language business questions into computed metrics within the analytics application."
     ]
   }
 ]
@@ -60,9 +63,15 @@ export default function Experience() {
               {r.role} <span className="mute">• {r.company}</span>
             </h3>
 
-            <p className="mute" style={{ marginTop: 0, marginBottom: 8 }}>
+            <p className="mute" style={{ marginTop: 0, marginBottom: 4 }}>
               {r.duration}
             </p>
+
+            {(r.location || r.client) && (
+              <p className="mute" style={{ marginTop: 0, marginBottom: 8 }}>
+                {r.location}{r.client ? ` • Client: ${r.client}` : ""}
+              </p>
+            )}
 
             {r.stack && (
               <p className="mute" style={{ marginTop: 0, marginBottom: 10 }}>
