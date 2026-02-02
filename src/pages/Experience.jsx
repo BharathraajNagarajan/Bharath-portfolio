@@ -3,61 +3,77 @@ import { motion } from 'framer-motion'
 
 const roles = [
   {
-    role: "Systems Engineer 3 — Big Data AI Developer",
+    role: "Systems Engineer — Machine Learning / Big Data AI",
     company: "Tata Consultancy Services",
-    duration: "Feb 2023 — Apr 2024",
+    duration: "Oct 2021 — Apr 2024 · 2 yrs 7 mos",
+    stack: "PyTorch • TensorFlow • Spark/PySpark • Kafka • Kubernetes • AWS • Azure • GCP",
     bullets: [
-      "Built supervised/unsupervised/semi-supervised models; +18% predictive accuracy.",
-      "Designed E2E ML pipelines; +28% deployment speed & efficiency.",
-      "Optimized DL with TensorFlow/PyTorch; +15% classification accuracy.",
-      "Applied NLP & CV for analytics; reduced manual operations via GenAI.",
-      "Maintained Cloudera big-data stack; reduced bottlenecks in ML infra.",
-      "Kafka/HDFS/HBase/Kudu tuning; −40% query latency.",
-      "Deployed to K8s with 99.9% uptime in production."
+      "Developed and deployed transformer-based NLP and sequence-to-sequence models in PyTorch, improving predictive accuracy by 18% across enterprise-scale use cases.",
+      "Designed and built end-to-end ML pipelines in TensorFlow covering ingestion, feature engineering, training, evaluation, and deployment, reducing release cycles by 28%.",
+      "Deployed and monitored ML services on Kubernetes, maintaining 99.9% production uptime while supporting scalable model serving and experimentation.",
+      "Built scalable data and feature pipelines using Kafka, HDFS, HBase, and Kudu, reducing query latency by 40% in high-throughput ML workloads.",
+      "Optimized PySpark and Spark SQL pipelines for model data preparation and batch workflows, reducing ETL processing time by 47% through execution tuning.",
+      "Collaborated with cross-functional stakeholders to translate business requirements into production ML solutions using BigQuery, Scikit-learn, Azure, and Airflow."
     ]
   },
   {
-    role: "System Engineer 2 — Big Data Python Developer",
-    company: "Tata Consultancy Services",
-    duration: "May 2022 — Feb 2023",
+    role: "Data Engineering Intern — Analytics",
+    company: "Media Sales Plus Inc.",
+    duration: "Aug 2025 — Dec 2025 · 5 mos",
+    stack: "Python • Streamlit • Azure • GitHub Actions • ETL • NLP",
     bullets: [
-      "Optimized PySpark jobs; −47% ETL time.",
-      "Real-time data pipelines on AWS/GCP; −31% processing lag.",
-      "Automated ingest/transform/validate; +25% data quality."
-    ]
-  },
-  {
-    role: "System Engineer 1 — Data Analyst",
-    company: "Tata Consultancy Services",
-    duration: "Oct 2021 — May 2022",
-    bullets: [
-      "Analyzed 100M+ financial records; +15% fraud detection accuracy.",
-      "SQL tuning; −45% retrieval time; reported to UK clients.",
-      "Risk models for banking; +20% loan approval efficiency.",
-      "10+ dashboards (Power BI/Tableau); +30% reporting efficiency."
+      "Developed an executive-facing Streamlit analytics platform with KPI monitoring, anomaly detection, and ARIMA-based forecasting for recurring financial reporting.",
+      "Built Python ETL pipelines to ingest, validate, aggregate, and backfill client datasets, standardizing schemas for analytics and ML-driven insights.",
+      "Implemented CI/CD using GitHub Actions and integrated workflows with Azure services to enable secure, repeatable deployments.",
+      "Built a rule-based NLP chatbot interface to translate natural-language business questions into computed metrics within the analytics application."
     ]
   }
 ]
 
-export default function Experience(){
+export default function Experience() {
   return (
     <Section title="Experience" subtitle="A timeline of impact">
       <div className="grid">
-        {roles.map((r, i)=> (
+        {roles.map((r, i) => (
           <motion.div
             key={i}
             className="card"
-            style={{padding:20, position:'relative'}}
-            initial={{ opacity: 0, x: i%2?20:-20 }}
+            style={{ padding: 20, position: 'relative' }}
+            initial={{ opacity: 0, x: i % 2 ? 20 : -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: .5 }}
+            transition={{ duration: 0.5 }}
           >
-            <div style={{position:'absolute', left:-6, top:22, width:12, height:12, borderRadius:999, background:'var(--accent-b)'}}/>
-            <h3 style={{marginBottom:4}}>{r.role} <span className="mute">• {r.company}</span></h3>
-            <p className="mute" style={{marginTop:0}}>{r.duration}</p>
-            <ul style={{marginTop:10, paddingLeft:18}}>
-              {r.bullets.map((b, j)=> <li key={j}>{b}</li>)}
+            <div
+              style={{
+                position: 'absolute',
+                left: -6,
+                top: 22,
+                width: 12,
+                height: 12,
+                borderRadius: 999,
+                background: 'var(--accent-b)'
+              }}
+            />
+
+            <h3 style={{ marginBottom: 4 }}>
+              {r.role} <span className="mute">• {r.company}</span>
+            </h3>
+
+            <p className="mute" style={{ marginTop: 0, marginBottom: 8 }}>
+              {r.duration}
+            </p>
+
+            {r.stack && (
+              <p className="mute" style={{ marginTop: 0, marginBottom: 10 }}>
+                {r.stack}
+              </p>
+            )}
+
+            <ul style={{ marginTop: 10, paddingLeft: 18 }}>
+              {r.bullets.map((b, j) => (
+                <li key={j}>{b}</li>
+              ))}
             </ul>
           </motion.div>
         ))}
