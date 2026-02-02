@@ -1,5 +1,12 @@
 import Section from '../components/SectionWrapper.jsx'
 
+<p className="mute" style={{ maxWidth: 820, marginBottom: 18 }}>
+  These projects reflect my self-driven learning journey — starting from
+  foundational machine learning implementations and advancing toward scalable,
+  distributed, and production-grade AI systems.
+</p>
+
+
 const shipped = [
   {
     name: "Distributed Systems Workflow Optimizer (Spark)",
