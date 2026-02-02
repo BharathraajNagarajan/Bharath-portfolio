@@ -53,7 +53,7 @@ export default function App(){
       <Sparkles />
       <nav className="sticky">
         <div className="container" style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'14px 0'}}>
-          <NavLink to="/" className="brand">BN<span style={{color:'var(--accent-b)'}}>.</span></NavLink>
+          <NavLink to="/" className="brand">BHR<span style={{color:'var(--accent-b)'}}>.</span></NavLink>
           <div style={{display:'flex', gap:14, alignItems:'center', flexWrap:'wrap'}}>
             {links.map(([to, label])=> (
               <NavLink key={to} to={to} style={({isActive})=>({
