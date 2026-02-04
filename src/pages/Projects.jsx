@@ -53,11 +53,11 @@ const shipped = [
 
 const inProgress = [
   {
-    name: "End-to-End ML Pipeline (Train → Deploy → Monitor)",
+    name: "End-to-End ML Pipeline with Dasboard (Train → Deploy → Monitor)",
     description:
       "Production-style ML pipeline with experiment tracking, containerized serving, and basic monitoring; focusing on reliability + reproducibility.",
     stack: ["MLflow", "Docker", "FastAPI", "CI/CD"],
-    link: "" // optional (leave empty if private/not ready)
+    link: "https://github.com/BharathraajNagarajan?tab=projects" // optional (leave empty if private/not ready)
   },
   {
     name: "RAG Chatbot (Docs + Retrieval + Evaluation)",
