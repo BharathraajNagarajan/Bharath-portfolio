@@ -57,7 +57,7 @@ const inProgress = [
     description:
       "Production-style ML pipeline with experiment tracking, containerized serving, and basic monitoring; focusing on reliability + reproducibility.",
     stack: ["MLflow", "Docker", "FastAPI", "CI/CD"],
-    link: "https://github.com/BharathraajNagarajan?tab=projects" // optional (leave empty if private/not ready)
+    link: "https://github.com/BharathraajNagarajan/End_to_end_ML_Pipeline_w_Dashboard" // optional (leave empty if private/not ready)
   },
   {
     name: "RAG Chatbot (Docs + Retrieval + Evaluation)",
