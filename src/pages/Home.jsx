@@ -49,7 +49,7 @@ export default function Home(){
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15 }}
           >
-            Machine Learning Engineer | MS in Data Science @ SUNY Buffalo (GPA 3.9/4.0) •
+            Machine Learning Engineer (Applied Systems & Inference) | MS in Data Science @ SUNY Buffalo (GPA 3.9/4.0) •
             3+ years building scalable AI systems
           </motion.p>
 
