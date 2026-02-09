@@ -50,7 +50,7 @@ export default function Home(){
             transition={{ delay: 0.15 }}
           >
             Machine Learning Engineer (Applied Systems & Inference) | MS in Data Science @ SUNY Buffalo (GPA 3.9/4.0) •
-            3+ years building scalable AI systems
+            3+ years building scalable AI systems • Ex-TCS
           </motion.p>
 
           <motion.p
@@ -60,8 +60,8 @@ export default function Home(){
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
           >
-            Ex-TCS Big Data AI Developer • ML Infrastructure • GenAI • Seeking
-            Full-time roles (Dec 2025)
+            Focused on low-latency inference, scalable ML pipelines, and production ML systems • Seeking
+            Full-time roles (Jan 2026)
           </motion.p>
 
           {/* CTA buttons */}
