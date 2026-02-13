@@ -9,6 +9,13 @@ import Section from '../components/SectionWrapper.jsx'
 
 const shipped = [
   {
+    name: "End-to-End ML Pipeline with Dasboard (Train → Deploy → Monitor)",
+    description:
+      "Production-style ML pipeline with experiment tracking, containerized serving, and basic monitoring; focusing on reliability + reproducibility.",
+    stack: ["MLflow", "Docker", "FastAPI", "CI/CD"],
+    link: "https://github.com/BharathraajNagarajan/End_to_end_ML_Pipeline_w_Dashboard" 
+  },  
+  {
     name: "Production-Grade ML/Streaming Systems Reliability (PySpark + Structured Streaming)",
     description:
       "Spark-based distributed workflow optimizer: (1) PySpark Dijkstra shortest paths for graph analytics, and (2) fault-tolerant Structured Streaming WordCount with checkpoint recovery.",
@@ -52,13 +59,6 @@ const shipped = [
 ]
 
 const inProgress = [
-  {
-    name: "End-to-End ML Pipeline with Dasboard (Train → Deploy → Monitor)",
-    description:
-      "Production-style ML pipeline with experiment tracking, containerized serving, and basic monitoring; focusing on reliability + reproducibility.",
-    stack: ["MLflow", "Docker", "FastAPI", "CI/CD"],
-    link: "https://github.com/BharathraajNagarajan/End_to_end_ML_Pipeline_w_Dashboard" // optional (leave empty if private/not ready)
-  },
   {
     name: "RAG Chatbot (Docs + Retrieval + Evaluation)",
     description:
