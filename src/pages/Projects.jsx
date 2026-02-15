@@ -12,7 +12,7 @@ const shipped = [
     name: "End-to-End ML Pipeline with Dasboard (Train → Deploy → Monitor)",
     description:
       "Production-style ML pipeline with experiment tracking, containerized serving, and basic monitoring; focusing on reliability + reproducibility.",
-    stack: ["MLflow", "Docker", "FastAPI", "CI/CD"],
+    stack: ["MLflow", "Docker", "FastAPI", "CI/CD", "Streamlit", "Github", "Azure", "Data Pipelines"],
     link: "https://github.com/BharathraajNagarajan/End_to_end_ML_Pipeline_w_Dashboard" 
   },  
   {
