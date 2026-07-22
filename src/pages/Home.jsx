@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-// import profilePic from '../assets/profile.jpg';
 
 export default function Home(){
   return (
@@ -25,7 +24,7 @@ export default function Home(){
               margin: '0 0 10px'
             }}
           >
-            Hello, I’m{' '}
+            Hello, I'm{' '}
             <span style={{ color: 'var(--accent-b)' }}>
               Bharathraaj Nagarajan
             </span>
@@ -37,22 +36,20 @@ export default function Home(){
                 color: 'var(--accent-c)'
               }}
             >
-              craft
+              build
             </em>{' '}
-            production-grade AI/ML systems.
+            ML infrastructure that ships.
           </motion.h1>
 
-          {/* Subtitle – split for clarity */}
           <motion.p
             className="mute"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15 }}
           >
-            Machine Learning Engineer (Applied Systems & Inference) | MS in Data Science @ SUNY Buffalo (GPA 3.9/4.0) •
-            3+ years building scalable AI systems • Ex-TCS
+            ML Infrastructure Engineer | MS in Data Science @ SUNY Buffalo (GPA 3.875/4.0) •
+            2.5+ years building distributed ML systems at TCS • Ex-TCS
           </motion.p>
-
           <motion.p
             className="mute"
             style={{ marginTop: 6 }}
@@ -60,11 +57,9 @@ export default function Home(){
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
           >
-            Focused on low-latency inference, scalable ML pipelines, and production ML systems • Seeking
-            Full-time roles (Jan 2026)
+            Focused on distributed systems, scalable inference, and production ML infrastructure • Available immediately | Open to full-time roles
           </motion.p>
 
-          {/* CTA buttons */}
           <div
             style={{
               display: 'flex',
@@ -73,50 +68,46 @@ export default function Home(){
               flexWrap: 'wrap'
             }}
           >
-            <a
+            
               className="btn btn-primary"
               href="/Bharathraaj_Nagarajan_Resume.pdf"
               download
             >
               Download Resume (PDF)
             </a>
-            <a
+            
               className="btn"
               href="mailto:bharathraajnagarajan@gmail.com"
             >
               Contact Me
             </a>
           </div>
-
           <hr className="soft" />
 
-          {/* Skill badges – ordered by seniority signal */}
           <div className="badges">
-            {
-              [
-  'Spark',
-  'Kubernetes',
-  'ML Pipelines',
-  'Model Serving',
-  'MLOps',
-  'TensorFlow',
-  'PyTorch',
-  'Cloud (AWS/GCP/Azure)',
-  'SQL',
-  'LLMs / RAG (LangChain)'
-].map(tag => (
+            {[
+              'Spark',
+              'Kubernetes',
+              'Kafka',
+              'MLflow',
+              'ML Pipelines',
+              'Model Serving',
+              'MLOps',
+              'Docker',
+              'PyTorch',
+              'Cloud (AWS/GCP/Azure)',
+            ].map(tag => (
               <span key={tag} className="badge">
                 {tag}
               </span>
             ))}
           </div>
 
-          {/* Subtle forward-looking signal */}
           <p
             className="mute"
             style={{ marginTop: 10, fontSize: 14 }}
           >
-            Currently building end-to-end ML pipelines, RAG systems, and model monitoring workflows for production use.
+            Currently building CSE Pulse — a production research data platform for 64 UB faculty using Groq/Llama 3.1 and OpenShift Kubernetes.
           </p>
         </div>
 
