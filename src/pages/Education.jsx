@@ -3,12 +3,13 @@ import Section from '../components/SectionWrapper.jsx'
 const schools = [
   {
     name: "University at Buffalo, The State University of New York",
-    degree: "Masters in Data Sciences and Applications (GPA: 3.9/4.0)",
+    degree: "Masters in Data Sciences and Applications (GPA: 3.875/4.0)",
     when: "Aug 2024 - Dec 2025",
     location: "Buffalo, NY, USA",
     mode: "On-campus",
     details: [
-      "Coursework: Database Management Structure, Data Intensive Computing, Machine Learning, Data Modeling, Cybersecurity",
+      "Coursework: Machine Learning, Data Intensive Computing, Distributed Systems, Database Management, Cybersecurity",
+      "Research Interests: ML Systems, Distributed Training Infrastructure, Inference Efficiency, Empirical ML Research",
       "Industry Capstone (CDA 500): Client-facing MVP with MediaSales Plus",
       "Graduate Assistant: EAS 230 – Engineering Computations (MATLAB/DSA)"
     ]
@@ -20,7 +21,7 @@ const schools = [
     location: "Chennai, India",
     mode: "Full-time",
     details: [
-      "Activities: Department Coordinator, IEEE Student Body (Secretary), NSS."      
+      "Activities: Department Coordinator, IEEE Student Body (Secretary), NSS."
     ]
   }
 ]
@@ -50,15 +51,12 @@ export default function Education() {
               <h3 style={{ marginBottom: 4, marginTop: 0 }}>{s.name}</h3>
               <p className="mute" style={{ margin: 0, whiteSpace: 'nowrap' }}>{s.when}</p>
             </div>
-
             <p style={{ margin: 0 }}>{s.degree}</p>
-
             {s.location && s.mode && (
               <p className="mute" style={{ marginTop: 4, marginBottom: 0 }}>
                 {s.location} • {s.mode}
               </p>
             )}
-
             {s.details && s.details.length > 0 && (
               <ul style={{ marginTop: 8, paddingLeft: 20, marginBottom: 0 }}>
                 {s.details.map((detail, index) => (
