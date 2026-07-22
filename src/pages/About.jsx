@@ -65,24 +65,50 @@ export default function About() {
   return (
     <Section title="About" subtitle="A brief intro">
       <div className="card" style={S.card}>
-        {/* Summary (keep this short) */}
         <p style={S.summary}>
-          I’m a <strong>Recent MS Data Science graduate (GPA 3.9)</strong> from <strong>University at Buffalo</strong> with <strong>2.5+ years</strong> at <strong>TCS</strong>.
-          I build <strong>scalable data pipelines</strong> and <strong>production ML systems</strong> across distributed stacks (Spark, Kafka) and cloud-native deployments (Kubernetes).
+          ML infrastructure engineer with <strong>2.5+ years at TCS</strong> building distributed ML systems for enterprise-scale workloads.
+          I focus on the infrastructure that makes ML possible — <strong>model serving, data pipelines, experiment tracking, and research tooling</strong> —
+          across distributed stacks (Spark, Kafka, HBase, Kudu) and cloud-native deployments (Kubernetes, OpenShift).
+          MS in Data Science from <strong>University at Buffalo (GPA 3.875/4.0)</strong>.
         </p>
 
-        {/* Segmented blocks */}
         <div style={S.grid}>
+
           <div style={S.block}>
             <div style={S.titleRow}>
-              <p style={S.h}>Tata Consultancy Services (TCS)</p>
-              <span style={S.tag}>Data / ML Engineering</span>
+              <p style={S.h}>Tata Consultancy Services</p>
+              <span style={S.tag}>ML Infrastructure Engineer – Model Serving & Distributed Pipelines</span>
             </div>
             <ul style={S.ul}>
-              <li>Designed end-to-end ML pipelines with PySpark + TensorFlow/PyTorch, improving deployment efficiency by 28% and accuracy by 15%.</li>
-              <li>Optimized distributed workflows (Cloudera, Kafka, HDFS, Kudu), reducing query latency by 40% and improving reliability.</li>
-              <li>Tuned production Spark/Flink jobs for better throughput and stability.</li>
-              <li>Supported Kubernetes deployments and production debugging with 99.9% uptime practices.</li>
+              <li>Engineered real-time and batch model serving infrastructure on Kubernetes for low-latency, high-throughput inference — 99.9% production uptime via containerized deployment, automated recovery, liveness probes, and observability instrumentation.</li>
+              <li>Designed and optimized feature engineering and ETL pipelines using Spark (PySpark, Spark SQL), Kafka, HBase, and Kudu processing 100M+ records; reduced ML training and inference latency by ~40% through pipeline parallelization and partition strategy redesign.</li>
+              <li>Owned end-to-end ML model lifecycle: data preparation pipelines, containerized deployment (Docker + Kubernetes), model versioning, A/B rollout, rollback, and real-time drift monitoring for enterprise-scale financial ML workloads.</li>
+              <li>Profiled and optimized large-scale batch and streaming data pipelines, improving processing efficiency by ~47% through distributed node parallelization and systematic bottleneck identification.</li>
+            </ul>
+          </div>
+
+          <div style={S.block}>
+            <div style={S.titleRow}>
+              <p style={S.h}>CSE Pulse – Research Activity Intelligence Platform</p>
+              <span style={S.tag}>UB AI Innovation Lab</span>
+            </div>
+            <ul style={S.ul}>
+              <li>Building production research data infrastructure aggregating scholarly activity for 64 UB CSE faculty across arXiv, DBLP, Semantic Scholar, IEEE, and RSS feeds; implemented entity resolution and deduplication across noisy multi-source signals.</li>
+              <li>Built an LLM inference pipeline (Groq/Llama 3.1) classifying faculty research into grants, publications, collaborations, and research themes; automated departmental digests and stakeholder analytics via React dashboard.</li>
+              <li>Deploying on UB's OpenShift Kubernetes cluster under enterprise security constraints — containerizing services with Docker while satisfying non-root execution requirements.</li>
+            </ul>
+          </div>
+
+          <div style={S.block}>
+            <div style={S.titleRow}>
+              <p style={S.h}>Media Sales Plus Inc.</p>
+              <span style={S.tag}>Machine Learning Intern</span>
+            </div>
+            <ul style={S.ul}>
+              <li>Designed a multi-tenant data ingestion and schema normalization pipeline handling heterogeneous CSV/Excel formats across 10+ client datasets; automated schema detection, validation, and KPI computation.</li>
+              <li>Implemented time-series forecasting (ARIMA, 12-month horizon) and statistical anomaly detection (IQR) as independent, modular processing components; deployed via Streamlit on Azure.</li>
+              <li>Built a deterministic, rule-based analytics engine for structured business queries — architected as a modular, swappable component designed to support future LLM integration without platform restructuring.</li>
+              <li>Engineered CI/CD automation using GitHub Actions and Docker for zero-downtime model deployment across cloud environments.</li>
             </ul>
           </div>
 
@@ -92,31 +118,17 @@ export default function About() {
               <span style={S.tag}>MS in Data Science</span>
             </div>
             <ul style={S.ul}>
-              <li>Strengthened ML + data engineering foundations: feature engineering, evaluation, and experimentation.</li>
-              <li>Built Spark streaming pipelines (checkpoint recovery) and implemented Dijkstra in PySpark.</li>
-              <li>Worked with graph analytics (Neo4j) and applied ML on real-world datasets.</li>
+              <li>Coursework: Machine Learning, Data Intensive Computing, Distributed Systems, Database Management, Cybersecurity.</li>
+              <li>Built Spark streaming pipelines with checkpoint recovery and benchmarked distributed Spark vs single-node processing on 100K+ datasets (20× speedup).</li>
+              <li>Research interests: ML Systems, Distributed Training Infrastructure, Inference Efficiency, Empirical ML Research.</li>
             </ul>
           </div>
 
-          <div style={S.block}>
-            <div style={S.titleRow}>
-              <p style={S.h}>MediaSales Plus (CDA 500 Capstone)</p>
-              <span style={S.tag}>Client project</span>
-            </div>
-            <ul style={S.ul}>
-              <li>Built an analytics pipeline to automate recurring reporting across business units from monthly CSV/Excel sources.</li>
-              <li>Implemented standardization + data quality checks and delivered a Streamlit KPI dashboard (trends/anomalies + forecasting summaries).</li>
-            </ul>
-          </div>
         </div>
 
-        {/* Footer */}
         <div style={S.footer}>
           <p className="mute" style={S.p}>
-            <strong>Seeking full-time roles (Jan 2026)</strong> — Data Engineering / ML Engineering / Analytics Engineering • Available immediately • F-1 OPT (STEM)
-          </p>
-          <p style={{ ...S.small, marginTop: 10 }}>
-            Machine Learning Engineer | Data Engineer | MS in Data Science @ SUNY Buffalo | Ex-TCS | Building Scalable AI Systems
+            <strong>Available immediately</strong> — Open to full-time roles in ML infrastructure, distributed systems, and research engineering • F-1 OPT (STEM)
           </p>
         </div>
       </div>
