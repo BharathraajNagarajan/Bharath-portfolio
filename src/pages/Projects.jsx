@@ -2,6 +2,13 @@ import Section from '../components/SectionWrapper.jsx'
 
 const shipped = [
   {
+  name: "Streaming AI Agent Pipeline — Real-Time Log Analytics on Snowflake",
+  description:
+    "Real-time service-monitoring platform (RetailPulse) built on Snowflake: Snowpipe Streaming ingestion, Bronze→Silver→Gold processing via Dynamic Tables, a Semantic View for governed business context, and a Cortex Agent for SRE-style incident explanation. Validated by injecting a synthetic failure — dashboard surfaced 51.4% error rate and 5,084ms P95 latency in real time. Documents real debugging: schema mismatches, PAT vs RSA auth, role/ownership conflicts, and memory throttling in the streaming client.",
+  stack: ["Snowflake", "Snowpipe Streaming", "Dynamic Tables", "Cortex Agent", "Streamlit", "Python", "SQL"],
+  link: "https://github.com/BharathraajNagarajan/streaming-ai-agent-pipeline"
+  },
+  {
     name: "CSE Pulse – Research Activity Intelligence Platform",
     description:
       "Production research data infrastructure aggregating scholarly activity for 64 UB CSE faculty across arXiv, DBLP, Semantic Scholar, IEEE, and RSS feeds. LLM inference pipeline (Groq/Llama 3.1) classifies research into grants, publications, and collaborations. Deployed on OpenShift Kubernetes.",
