@@ -5,58 +5,21 @@ import './About.css'
 
 const focus = ['Distributed Systems', 'Backend Engineering', 'ML Infrastructure', 'Agentic AI Reliability']
 
-const stages = [
+const chapters = [
   {
     n: '01',
-    kind: 'Industry engineering',
-    title: 'Distributed infrastructure',
-    org: 'Lloyds Banking Group',
-    body: 'I worked on large-scale banking data platforms, building Spark/PySpark and Kafka batch and streaming pipelines, including distributed feature engineering and data preparation for ML workloads. Alongside data science teams, I worked on the Kubernetes-based infrastructure around those workloads: containerized deployment, recovery, and observability, plus model-serving, versioning, and rollout workflows. Day to day that meant partitioning, profiling, and bottleneck analysis, and it taught me to think in data flow and failure modes before anything else.',
-    stats: [
-      ['100M+', 'records/day through distributed pipelines'],
-      ['~40%', 'query latency reduction'],
-    ],
-    tech: ['Python', 'SQL', 'Spark/PySpark', 'Kafka', 'HBase', 'Kudu', 'Airflow', 'Docker', 'Kubernetes', 'PyTorch', 'TensorFlow'],
+    title: 'Learning to think in systems',
+    body: 'Working with distributed infrastructure taught me to reason about data flow, performance bottlenecks, and failure modes rather than isolated components.',
   },
   {
     n: '02',
-    kind: 'Research engineering & industry internship',
-    title: 'Backend, cloud, and applied AI',
-    parts: [
-      {
-        label: 'Research Engineer',
-        name: 'University at Buffalo — AI Innovation Lab',
-        org: 'Faculty Research Intelligence Platform',
-        body: 'I contributed multi-source ingestion, entity resolution and deduplication, MySQL-backed integration, FastAPI backend services, stateful LangGraph/LLM workflows, and OpenShift/Kubernetes deployment and debugging.',
-        stats: [
-          ['65', 'faculty'],
-          ['~15', 'external sources'],
-          ['12', 'MySQL tables'],
-          ['~9', 'FastAPI endpoints'],
-        ],
-        tech: ['FastAPI', 'MySQL', 'LangGraph', 'OpenShift', 'Kubernetes'],
-      },
-      {
-        label: 'Machine Learning Intern',
-        name: 'Media Sales Plus Inc.',
-        org: 'Academic industry internship',
-        body: 'I built multi-tenant ingestion and normalization workflows across 10+ heterogeneous client datasets (CSV/Excel), automating schema validation and KPI computation. I implemented ARIMA forecasting and IQR-based anomaly detection, developed a modular, deterministic business-query engine, and delivered the analytics through Streamlit on Azure, with Docker and GitHub Actions CI/CD. The work connected data engineering, applied machine learning, and business-facing delivery.',
-        stats: [['10+', 'client datasets']],
-        tech: ['ARIMA', 'IQR anomaly detection', 'Streamlit', 'Azure', 'Docker', 'GitHub Actions'],
-      },
-    ],
+    title: 'Building for real users',
+    body: 'Applied ML, backend integration, and research engineering taught me to translate ambiguous requirements into applications people can actually use.',
   },
   {
     n: '03',
-    kind: 'Independent projects',
-    title: 'ML systems and reliable AI infrastructure',
-    org: 'Hands-on, ongoing',
-    body: 'My current work is where distributed-systems habits meet AI workloads. I benchmark LLM inference with PyTorch and FastAPI, measuring GPU telemetry, latency, throughput, and concurrency. I also build agent systems around the failure cases: durable workflows, deterministic authorization, MCP tool execution, idempotency, retries, and post-action verification.',
-    stats: [
-      ['12/12', 'live failure scenarios, governed agent execution (162 tests)'],
-      ['191', 'passing tests, agentic reliability engine'],
-    ],
-    tech: ['PyTorch', 'FastAPI', 'MCP', 'Temporal', 'LangGraph', 'State machines', 'LLM gateways'],
+    title: 'Going deeper into AI systems',
+    body: "I'm now focused on inference performance, durable agent execution, evaluation, and the infrastructure needed to make AI systems reliable.",
   },
 ]
 
@@ -88,27 +51,6 @@ const principles = [
   'Verify external actions actually happened',
   'Ship something people can use',
 ]
-
-function Detail({ body, stats, tech }) {
-  return (
-    <>
-      <p className="ab-body">{body}</p>
-      <ul className="ab-stats">
-        {stats.map(([v, l]) => (
-          <li key={l}>
-            <strong className="ab-grad">{v}</strong>
-            <span>{l}</span>
-          </li>
-        ))}
-      </ul>
-      <ul className="ab-chips" aria-label="Technologies">
-        {tech.map((t) => (
-          <li key={t}>{t}</li>
-        ))}
-      </ul>
-    </>
-  )
-}
 
 export default function About() {
   const reduce = useReducedMotion()
@@ -149,32 +91,15 @@ export default function About() {
 
       <section className="ab-section" aria-labelledby="ab-journey">
         <div className="container">
-          <h2 id="ab-journey">Engineering journey</h2>
-          <ol className="ab-timeline">
-            {stages.map((s, i) => (
-              <motion.li className="ab-stage" key={s.n} {...inView(i)}>
-                <div className="ab-node" aria-hidden="true">
-                  {s.n}
-                </div>
-                <div className="ab-stage-card">
-                  <p className="ab-kind">{s.kind}</p>
-                  <h3>{s.title}</h3>
-                  {s.parts ? (
-                    s.parts.map((p) => (
-                      <div className="ab-part" key={p.name}>
-                        <p className="ab-kind ab-part-label">{p.label}</p>
-                        <h4>{p.name}</h4>
-                        <p className="ab-org">{p.org}</p>
-                        <Detail body={p.body} stats={p.stats} tech={p.tech} />
-                      </div>
-                    ))
-                  ) : (
-                    <>
-                      <p className="ab-org">{s.org}</p>
-                      <Detail body={s.body} stats={s.stats} tech={s.tech} />
-                    </>
-                  )}
-                </div>
+          <h2 id="ab-journey">How I got here</h2>
+          <ol className="ab-chapters">
+            {chapters.map((c, i) => (
+              <motion.li className="ab-chapter" key={c.n} {...inView(i)}>
+                <span className="ab-chapter-n" aria-hidden="true">
+                  {c.n}
+                </span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
               </motion.li>
             ))}
           </ol>

@@ -93,15 +93,17 @@ export default function Home() {
         <div className="container hp-hero-grid">
           <div>
             <motion.span className="hp-eyebrow" {...rise(0)}>
-              <i aria-hidden="true" /> Software Engineer
+              <i aria-hidden="true" /> Software Engineer · San Francisco Bay Area
             </motion.span>
-            <motion.h1 {...rise(0.05)}>
-              Building AI systems that <span className="hp-grad">perform</span>, execute reliably, and survive failure.
+            <motion.h1 className="hp-name" {...rise(0.05)}>
+              Bharathraaj Nagarajan
             </motion.h1>
-            <motion.div {...rise(0.12)}>
-              <p className="hp-name">Bharathraaj Nagarajan</p>
-              <p className="hp-role">Software Engineer | Distributed Systems · ML Infrastructure · Agentic AI</p>
-            </motion.div>
+            <motion.h2 className="hp-statement" {...rise(0.1)}>
+              Building AI systems that <span className="hp-grad">perform</span>, execute reliably, and survive failure.
+            </motion.h2>
+            <motion.p className="hp-role" {...rise(0.14)}>
+              Distributed Systems · ML Infrastructure · Applied &amp; Agentic AI
+            </motion.p>
             <motion.p className="hp-lead" style={{ marginTop: 18 }} {...rise(0.18)}>
               Engineering experience spanning large-scale data platforms, backend systems, and cloud infrastructure. Building on that
               foundation through hands-on LLM inference benchmarking, governed agent execution, and production-oriented AI systems.
@@ -110,8 +112,7 @@ export default function Home() {
               3.5 years of combined industry, academic capstone, and research engineering experience.
             </motion.p>
             <motion.p className="hp-exp" style={{ marginTop: 8 }} {...rise(0.25)}>
-              Based in the San Francisco Bay Area · Building across AI infrastructure, distributed systems, and applied AI · Active in the
-              Bay Area engineering community
+              Active in the Bay Area engineering community, building across AI infrastructure and applied AI.
             </motion.p>
             <motion.div className="hp-cta" {...rise(0.28)}>
               <a className="btn btn-primary" href="#featured-work">
