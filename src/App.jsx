@@ -1,11 +1,10 @@
-import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Download } from 'lucide-react'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Experience from './pages/Experience.jsx'
-import Education from './pages/Education.jsx'
 import Projects from './pages/Projects.jsx'
 import Skills from './pages/Skills.jsx'
 import Contact from './pages/Contact.jsx'
@@ -42,7 +41,6 @@ export default function App(){
     ['/', 'Home'],
     ['/about', 'About'],
     ['/experience', 'Experience'],
-    ['/education', 'Education'],
     ['/projects', 'Projects'],
     ['/skills', 'Skills'],
     ['/contact', 'Contact'],
@@ -72,7 +70,7 @@ export default function App(){
           <Route path="/" element={page(<Home/>)} />
           <Route path="/about" element={page(<About/>)} />
           <Route path="/experience" element={page(<Experience/>)} />
-          <Route path="/education" element={page(<Education/>)} />
+          <Route path="/education" element={<Navigate to="/about" replace />} />
           <Route path="/projects" element={page(<Projects/>)} />
           <Route path="/skills" element={page(<Skills/>)} />
           <Route path="/contact" element={page(<Contact/>)} />

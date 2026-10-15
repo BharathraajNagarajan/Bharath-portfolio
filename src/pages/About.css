@@ -90,3 +90,6 @@
 :root.light .ab-part-label{ color:#0e7490; }
 .ab-part h4{ margin:0; font-size:1.1rem; }
 .ab-part .ab-org{ margin-bottom:10px; }
+
+.ab-edu-second{ margin-top:16px; padding-top:14px; border-top:1px solid var(--surface); }
+.ab-edu-sname{ margin:0; font-size:1.05rem; font-weight:600; }

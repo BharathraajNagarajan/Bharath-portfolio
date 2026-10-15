@@ -219,9 +219,13 @@ export default function About() {
           <motion.div className="ab-edu" {...inView(0)}>
             <div>
               <h2 id="ab-edu">Education</h2>
-              <p className="ab-edu-name">University at Buffalo</p>
+              <p className="ab-edu-name">University at Buffalo — State University of New York</p>
               <p className="ab-edu-deg">Master of Science in Data Science</p>
               <p className="ab-edu-meta">Graduated December 2025 · GPA 3.875/4.0</p>
+              <div className="ab-edu-second">
+                <p className="ab-edu-sname">SSN College of Engineering</p>
+                <p className="ab-edu-meta">Bachelor of Engineering · 2017–2021</p>
+              </div>
             </div>
             <div>
               <p className="ab-edu-dir">
