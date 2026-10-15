@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const roles = [
   {
     role: "Research Engineer",
-    company: "UB AI Innovation Lab – CSE Pulse",
+    company: "UB AI Innovation Lab – Faculty Research Intelligence Platform",
     duration: "2025 – Present",
     location: "Buffalo, NY, USA",
     stack: "Python • SQL • Groq/Llama 3.1 • Docker • OpenShift Kubernetes • React",

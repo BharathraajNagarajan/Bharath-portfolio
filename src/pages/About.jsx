@@ -1,137 +1,240 @@
-import Section from '../components/SectionWrapper.jsx'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+import './About.css'
 
-const S = {
-  card: {
-    padding: 22,
-    maxWidth: 980,
-    lineHeight: 1.65,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 14,
+const focus = ['Distributed Systems', 'Backend Engineering', 'ML Infrastructure', 'Agentic AI Reliability']
+
+const stages = [
+  {
+    n: '01',
+    kind: 'Industry engineering',
+    title: 'Distributed infrastructure',
+    org: 'Lloyds Banking Group',
+    body: 'I worked on large-scale banking data platforms, building Spark/PySpark and Kafka batch and streaming pipelines, including distributed feature engineering and data preparation for ML workloads. Alongside data science teams, I worked on the Kubernetes-based infrastructure around those workloads: containerized deployment, recovery, and observability, plus model-serving, versioning, and rollout workflows. Day to day that meant partitioning, profiling, and bottleneck analysis, and it taught me to think in data flow and failure modes before anything else.',
+    stats: [
+      ['100M+', 'records/day through distributed pipelines'],
+      ['~40%', 'query latency reduction'],
+    ],
+    tech: ['Python', 'SQL', 'Spark/PySpark', 'Kafka', 'HBase', 'Kudu', 'Airflow', 'Docker', 'Kubernetes', 'PyTorch', 'TensorFlow'],
   },
-  p: { margin: 0 },
-  summary: {
-    margin: 0,
-    fontSize: 16,
-    lineHeight: 1.7,
+  {
+    n: '02',
+    kind: 'Research engineering & industry internship',
+    title: 'Backend, cloud, and applied AI',
+    parts: [
+      {
+        label: 'Research Engineer',
+        name: 'University at Buffalo — AI Innovation Lab',
+        org: 'Faculty Research Intelligence Platform',
+        body: 'I contributed multi-source ingestion, entity resolution and deduplication, MySQL-backed integration, FastAPI backend services, stateful LangGraph/LLM workflows, and OpenShift/Kubernetes deployment and debugging.',
+        stats: [
+          ['65', 'faculty'],
+          ['~15', 'external sources'],
+          ['12', 'MySQL tables'],
+          ['~9', 'FastAPI endpoints'],
+        ],
+        tech: ['FastAPI', 'MySQL', 'LangGraph', 'OpenShift', 'Kubernetes'],
+      },
+      {
+        label: 'Machine Learning Intern',
+        name: 'Media Sales Plus Inc.',
+        org: 'Academic industry internship',
+        body: 'I built multi-tenant ingestion and normalization workflows across 10+ heterogeneous client datasets (CSV/Excel), automating schema validation and KPI computation. I implemented ARIMA forecasting and IQR-based anomaly detection, developed a modular, deterministic business-query engine, and delivered the analytics through Streamlit on Azure, with Docker and GitHub Actions CI/CD. The work connected data engineering, applied machine learning, and business-facing delivery.',
+        stats: [['10+', 'client datasets']],
+        tech: ['ARIMA', 'IQR anomaly detection', 'Streamlit', 'Azure', 'Docker', 'GitHub Actions'],
+      },
+    ],
   },
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    gap: 14,
-    marginTop: 4,
+  {
+    n: '03',
+    kind: 'Independent projects',
+    title: 'ML systems and reliable AI infrastructure',
+    org: 'Hands-on, ongoing',
+    body: 'My current work is where distributed-systems habits meet AI workloads. I benchmark LLM inference with PyTorch and FastAPI, measuring GPU telemetry, latency, throughput, and concurrency. I also build agent systems around the failure cases: durable workflows, deterministic authorization, MCP tool execution, idempotency, retries, and post-action verification.',
+    stats: [
+      ['12/12', 'live failure scenarios, governed agent execution (162 tests)'],
+      ['191', 'passing tests, agentic reliability engine'],
+    ],
+    tech: ['PyTorch', 'FastAPI', 'MCP', 'Temporal', 'LangGraph', 'State machines', 'LLM gateways'],
   },
-  block: {
-    padding: 14,
-    borderRadius: 14,
-    border: '1px solid rgba(255,255,255,0.10)',
-    background: 'rgba(255,255,255,0.03)',
+]
+
+const cards = [
+  {
+    title: 'Distributed Systems & Data Infrastructure',
+    body: 'Large-scale data processing with Spark and Kafka: partitioning, query performance, distributed storage, and keeping pipelines reliable under load.',
   },
-  titleRow: {
-    display: 'flex',
-    alignItems: 'baseline',
-    justifyContent: 'space-between',
-    gap: 10,
-    marginBottom: 10,
+  {
+    title: 'Backend & Cloud Engineering',
+    body: 'Python, FastAPI, and SQL services; external integrations and APIs; Docker, Kubernetes, and OpenShift deployment workflows.',
   },
-  h: {
-    margin: 0,
-    fontSize: 15,
-    fontWeight: 800,
-    letterSpacing: 0.2,
+  {
+    title: 'ML Infrastructure & Inference Performance',
+    body: 'Model serving, PyTorch inference benchmarking, GPU telemetry, concurrency, latency and throughput analysis, evaluation, and observability.',
   },
-  tag: {
-    fontSize: 12,
-    opacity: 0.75,
-    whiteSpace: 'nowrap',
+  {
+    title: 'Agentic AI & Execution Reliability',
+    body: 'LangGraph, MCP, durable orchestration, deterministic authorization, retries, idempotency, auditability, and post-action verification.',
   },
-  ul: {
-    margin: 0,
-    paddingLeft: 18,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 8,
-  },
-  footer: {
-    padding: 14,
-    borderRadius: 14,
-    border: '1px solid rgba(255,255,255,0.10)',
-    background: 'rgba(255,255,255,0.02)',
-  },
-  small: { margin: 0, opacity: 0.85 },
+]
+
+const principles = [
+  'Measure real system behavior',
+  'Find the bottleneck before optimizing',
+  'Understand how it fails',
+  'Debug the integration, not just the code',
+  'Recover from failure cleanly',
+  'Verify external actions actually happened',
+  'Ship something people can use',
+]
+
+function Detail({ body, stats, tech }) {
+  return (
+    <>
+      <p className="ab-body">{body}</p>
+      <ul className="ab-stats">
+        {stats.map(([v, l]) => (
+          <li key={l}>
+            <strong className="ab-grad">{v}</strong>
+            <span>{l}</span>
+          </li>
+        ))}
+      </ul>
+      <ul className="ab-chips" aria-label="Technologies">
+        {tech.map((t) => (
+          <li key={t}>{t}</li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 export default function About() {
+  const reduce = useReducedMotion()
+  const rise = (delay = 0) =>
+    reduce ? {} : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, delay } }
+  const inView = (i = 0) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 18 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: '-40px' },
+          transition: { duration: 0.5, delay: (i % 2) * 0.08 },
+        }
+  const hover = reduce ? {} : { whileHover: { y: -4 } }
+
   return (
-    <Section title="About" subtitle="A brief intro">
-      <div className="card" style={S.card}>
-        <p style={S.summary}>
-          ML infrastructure engineer with <strong>2.5+ years at TCS</strong> building distributed ML systems for enterprise-scale workloads.
-          I focus on the infrastructure that makes ML possible — <strong>model serving, data pipelines, experiment tracking, and research tooling</strong> —
-          across distributed stacks (Spark, Kafka, HBase, Kudu) and cloud-native deployments (Kubernetes, OpenShift).
-          MS in Data Science from <strong>University at Buffalo (GPA 3.875/4.0)</strong>.
-        </p>
-
-        <div style={S.grid}>
-
-          <div style={S.block}>
-            <div style={S.titleRow}>
-              <p style={S.h}>Tata Consultancy Services</p>
-              <span style={S.tag}>ML Infrastructure Engineer – Model Serving & Distributed Pipelines</span>
-            </div>
-            <ul style={S.ul}>
-              <li>Engineered real-time and batch model serving infrastructure on Kubernetes for low-latency, high-throughput inference — 99.9% production uptime via containerized deployment, automated recovery, liveness probes, and observability instrumentation.</li>
-              <li>Designed and optimized feature engineering and ETL pipelines using Spark (PySpark, Spark SQL), Kafka, HBase, and Kudu processing 100M+ records; reduced ML training and inference latency by ~40% through pipeline parallelization and partition strategy redesign.</li>
-              <li>Owned end-to-end ML model lifecycle: data preparation pipelines, containerized deployment (Docker + Kubernetes), model versioning, A/B rollout, rollback, and real-time drift monitoring for enterprise-scale financial ML workloads.</li>
-              <li>Profiled and optimized large-scale batch and streaming data pipelines, improving processing efficiency by ~47% through distributed node parallelization and systematic bottleneck identification.</li>
-            </ul>
-          </div>
-
-          <div style={S.block}>
-            <div style={S.titleRow}>
-              <p style={S.h}>CSE Pulse – Research Activity Intelligence Platform</p>
-              <span style={S.tag}>UB AI Innovation Lab</span>
-            </div>
-            <ul style={S.ul}>
-              <li>Building production research data infrastructure aggregating scholarly activity for 64 UB CSE faculty across arXiv, DBLP, Semantic Scholar, IEEE, and RSS feeds; implemented entity resolution and deduplication across noisy multi-source signals.</li>
-              <li>Built an LLM inference pipeline (Groq/Llama 3.1) classifying faculty research into grants, publications, collaborations, and research themes; automated departmental digests and stakeholder analytics via React dashboard.</li>
-              <li>Deploying on UB's OpenShift Kubernetes cluster under enterprise security constraints — containerizing services with Docker while satisfying non-root execution requirements.</li>
-            </ul>
-          </div>
-
-          <div style={S.block}>
-            <div style={S.titleRow}>
-              <p style={S.h}>Media Sales Plus Inc.</p>
-              <span style={S.tag}>Machine Learning Intern</span>
-            </div>
-            <ul style={S.ul}>
-              <li>Designed a multi-tenant data ingestion and schema normalization pipeline handling heterogeneous CSV/Excel formats across 10+ client datasets; automated schema detection, validation, and KPI computation.</li>
-              <li>Implemented time-series forecasting (ARIMA, 12-month horizon) and statistical anomaly detection (IQR) as independent, modular processing components; deployed via Streamlit on Azure.</li>
-              <li>Built a deterministic, rule-based analytics engine for structured business queries — architected as a modular, swappable component designed to support future LLM integration without platform restructuring.</li>
-              <li>Engineered CI/CD automation using GitHub Actions and Docker for zero-downtime model deployment across cloud environments.</li>
-            </ul>
-          </div>
-
-          <div style={S.block}>
-            <div style={S.titleRow}>
-              <p style={S.h}>University at Buffalo</p>
-              <span style={S.tag}>MS in Data Science</span>
-            </div>
-            <ul style={S.ul}>
-              <li>Coursework: Machine Learning, Data Intensive Computing, Distributed Systems, Database Management, Cybersecurity.</li>
-              <li>Built Spark streaming pipelines with checkpoint recovery and benchmarked distributed Spark vs single-node processing on 100K+ datasets (20× speedup).</li>
-              <li>Research interests: ML Systems, Distributed Training Infrastructure, Inference Efficiency, Empirical ML Research.</li>
-            </ul>
-          </div>
-
+    <div className="ab">
+      <header className="ab-hero">
+        <div className="container">
+          <motion.p className="ab-eyebrow" {...rise(0)}>
+            About / Engineering Journey
+          </motion.p>
+          <motion.h1 {...rise(0.05)}>
+            I build the systems behind <span className="ab-grad">intelligent applications.</span>
+          </motion.h1>
+          <motion.p className="ab-lead" {...rise(0.12)}>
+            My engineering foundation is in distributed data platforms, backend services, and cloud infrastructure. I'm extending that
+            foundation into ML inference, agent execution, and the performance and reliability challenges of modern AI systems.
+          </motion.p>
+          <motion.ul className="ab-tags" aria-label="Technical focus" {...rise(0.18)}>
+            {focus.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </motion.ul>
         </div>
+      </header>
 
-        <div style={S.footer}>
-          <p className="mute" style={S.p}>
-            <strong>Available immediately</strong> — Open to full-time roles in ML infrastructure, distributed systems, and research engineering • F-1 OPT (STEM)
-          </p>
+      <section className="ab-section" aria-labelledby="ab-journey">
+        <div className="container">
+          <h2 id="ab-journey">Engineering journey</h2>
+          <ol className="ab-timeline">
+            {stages.map((s, i) => (
+              <motion.li className="ab-stage" key={s.n} {...inView(i)}>
+                <div className="ab-node" aria-hidden="true">
+                  {s.n}
+                </div>
+                <div className="ab-stage-card">
+                  <p className="ab-kind">{s.kind}</p>
+                  <h3>{s.title}</h3>
+                  {s.parts ? (
+                    s.parts.map((p) => (
+                      <div className="ab-part" key={p.name}>
+                        <p className="ab-kind ab-part-label">{p.label}</p>
+                        <h4>{p.name}</h4>
+                        <p className="ab-org">{p.org}</p>
+                        <Detail body={p.body} stats={p.stats} tech={p.tech} />
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <p className="ab-org">{s.org}</p>
+                      <Detail body={s.body} stats={s.stats} tech={s.tech} />
+                    </>
+                  )}
+                </div>
+              </motion.li>
+            ))}
+          </ol>
         </div>
-      </div>
-    </Section>
+      </section>
+
+      <section className="ab-section" aria-labelledby="ab-engineer">
+        <div className="container">
+          <h2 id="ab-engineer">What I engineer</h2>
+          <div className="ab-cards">
+            {cards.map((c, i) => (
+              <motion.article className="ab-card" key={c.title} {...inView(i)} {...hover}>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ab-section" aria-labelledby="ab-philosophy">
+        <div className="container">
+          <motion.div className="ab-philosophy" {...inView(0)}>
+            <h2 id="ab-philosophy">
+              A working prototype is the beginning. <span className="ab-grad">Reliability is the engineering.</span>
+            </h2>
+            <p>
+              Getting something to work once is the easy part. I care about what happens next: how it behaves under real load, where it
+              breaks, and whether it recovers without someone watching.
+            </p>
+            <ul className="ab-principles">
+              {principles.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="ab-section ab-last" aria-labelledby="ab-edu">
+        <div className="container">
+          <motion.div className="ab-edu" {...inView(0)}>
+            <div>
+              <h2 id="ab-edu">Education</h2>
+              <p className="ab-edu-name">University at Buffalo</p>
+              <p className="ab-edu-deg">Master of Science in Data Science</p>
+              <p className="ab-edu-meta">Graduated December 2025 · GPA 3.875/4.0</p>
+            </div>
+            <div>
+              <p className="ab-edu-dir">
+                I'm looking at roles in software engineering, backend and platform engineering, ML infrastructure, AI systems, and applied
+                or forward deployed AI engineering.
+              </p>
+              <Link className="ab-link" to="/projects">
+                See projects <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   )
 }

@@ -9,7 +9,7 @@ const shipped = [
   link: "https://github.com/BharathraajNagarajan/streaming-ai-agent-pipeline"
   },
   {
-    name: "CSE Pulse – Research Activity Intelligence Platform",
+    name: "Faculty Research Intelligence Platform",
     description:
       "Production research data infrastructure aggregating scholarly activity for 64 UB CSE faculty across arXiv, DBLP, Semantic Scholar, IEEE, and RSS feeds. LLM inference pipeline (Groq/Llama 3.1) classifies research into grants, publications, and collaborations. Deployed on OpenShift Kubernetes.",
     stack: ["Python", "Groq/Llama 3.1", "Docker", "OpenShift Kubernetes", "SQL", "React"],
