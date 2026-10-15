@@ -1,0 +1,39 @@
+/* Experience page styles (prefixed ex-) */
+.ex-grad{ background: linear-gradient(90deg, var(--accent-b), var(--accent-a)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.ex-hero{ padding:84px 0 28px; }
+.ex-eyebrow{ margin:0 0 18px; font-size:.82rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-b); }
+:root.light .ex-eyebrow{ color:#0e7490; }
+.ex-hero h1{ margin:0 0 20px; max-width:22ch; font-size:clamp(2.2rem, 5vw, 3.8rem); line-height:1.06; letter-spacing:-.025em; font-weight:800; }
+.ex-lead{ max-width:64ch; margin:0; color:var(--muted); font-size:1.12rem; line-height:1.7; }
+.ex-section{ padding:36px 0 90px; }
+
+.ex-timeline{ list-style:none; margin:0; padding:0; position:relative; display:grid; gap:22px; }
+.ex-timeline::before{ content:''; position:absolute; left:23px; top:24px; bottom:24px; width:2px; background:linear-gradient(180deg, var(--accent-b), var(--accent-a)); opacity:.5; }
+.ex-item{ display:grid; grid-template-columns:48px minmax(0,1fr); gap:20px; align-items:start; }
+.ex-node{ position:relative; z-index:1; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-weight:800; font-size:.95rem; background:var(--bg); border:2px solid var(--accent-b); }
+.ex-card{ padding:28px; border-radius:var(--radius); border:1px solid var(--surface); background:var(--card); backdrop-filter:blur(12px); transition:border-color .25s ease, box-shadow .25s ease; }
+.ex-card:hover{ border-color:var(--ring); box-shadow:0 18px 40px -18px color-mix(in srgb, var(--accent-a) 55%, transparent); }
+.ex-type{ margin:0 0 6px; font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.ex-card h2{ margin:0; font-size:1.45rem; letter-spacing:-.01em; line-height:1.25; }
+.ex-org{ margin:4px 0 0; font-weight:600; color:var(--accent-b); }
+:root.light .ex-org{ color:#0e7490; }
+.ex-work{ margin:2px 0 0; font-weight:600; }
+.ex-meta{ display:flex; flex-wrap:wrap; gap:6px 18px; margin:10px 0 14px; color:var(--muted); font-size:.9rem; }
+.ex-summary{ margin:0 0 12px; max-width:75ch; line-height:1.65; }
+.ex-points{ margin:0 0 20px; padding-left:18px; color:var(--muted); line-height:1.65; max-width:78ch; display:grid; gap:8px; }
+.ex-metrics{ display:flex; flex-wrap:wrap; gap:12px; list-style:none; margin:0 0 16px; padding:0; }
+.ex-metrics li{ padding:12px 16px; border-radius:14px; border:1px solid var(--surface); background:var(--surface); min-width:120px; }
+.ex-metrics strong{ display:block; font-size:1.5rem; font-weight:800; }
+.ex-metrics span{ display:block; font-size:.82rem; color:var(--muted); line-height:1.4; margin-top:2px; }
+.ex-chips{ display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0; padding:0; }
+.ex-chips li{ font-size:.78rem; padding:.2rem .55rem; border-radius:8px; background:var(--surface); }
+
+@media (max-width:760px){
+  .ex-hero{ padding-top:44px; }
+  .ex-timeline::before{ left:15px; }
+  .ex-item{ grid-template-columns:32px minmax(0,1fr); gap:12px; }
+  .ex-node{ width:32px; height:32px; font-size:.7rem; }
+  .ex-card{ padding:18px; }
+  .ex-metrics li{ min-width:0; flex:1 1 120px; }
+}
+@media (prefers-reduced-motion: reduce){ .ex-card{ transition:none; } }

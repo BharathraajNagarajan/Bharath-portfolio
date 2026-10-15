@@ -109,6 +109,10 @@ export default function Home() {
             <motion.p className="hp-exp" {...rise(0.22)}>
               3.5 years of combined industry, academic capstone, and research engineering experience.
             </motion.p>
+            <motion.p className="hp-exp" style={{ marginTop: 8 }} {...rise(0.25)}>
+              Based in the San Francisco Bay Area · Building across AI infrastructure, distributed systems, and applied AI · Active in the
+              Bay Area engineering community
+            </motion.p>
             <motion.div className="hp-cta" {...rise(0.28)}>
               <a className="btn btn-primary" href="#featured-work">
                 Explore My Work <ArrowDownRight size={18} aria-hidden="true" />
