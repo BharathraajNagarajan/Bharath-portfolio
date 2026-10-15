@@ -1,0 +1,44 @@
+/* Contact page styles (prefixed ct-) */
+.ct-grad{ background: linear-gradient(90deg, var(--accent-b), var(--accent-a)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.ct-hero{ padding:84px 0 24px; }
+.ct-eyebrow{ margin:0 0 18px; font-size:.82rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-b); }
+:root.light .ct-eyebrow{ color:#0e7490; }
+.ct-hero h1{ margin:0 0 20px; max-width:18ch; font-size:clamp(2.3rem, 5.4vw, 4rem); line-height:1.05; letter-spacing:-.025em; font-weight:800; }
+.ct-lead{ max-width:68ch; margin:0; color:var(--muted); font-size:1.12rem; line-height:1.7; }
+
+.ct-section{ padding:36px 0 90px; }
+.ct-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; align-items:start; }
+.ct-card{ padding:28px; border-radius:var(--radius); border:1px solid var(--surface); background:var(--card); backdrop-filter:blur(12px); }
+.ct-card h2{ margin:0 0 18px; font-size:1.25rem; letter-spacing:-.01em; }
+
+.ct-channels{ list-style:none; margin:0 0 20px; padding:0; display:grid; gap:16px; }
+.ct-channels li{ display:grid; grid-template-columns:24px minmax(0,1fr); gap:12px; align-items:start; color:var(--accent-b); }
+:root.light .ct-channels li{ color:#0e7490; }
+.ct-channels li > div{ color:var(--text); min-width:0; }
+.ct-label{ display:block; font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+.ct-channels a{ font-weight:600; overflow-wrap:anywhere; }
+.ct-channels a:hover{ text-decoration:underline; }
+.ct-channels a:focus-visible, .ct-resume:focus-visible{ outline:2px solid var(--accent-b); outline-offset:3px; border-radius:4px; }
+.ct-resume{ display:inline-flex; align-items:center; gap:.45rem; font-size:.9rem; font-weight:600; color:var(--muted); padding-top:14px; border-top:1px solid var(--surface); width:100%; }
+.ct-resume:hover{ color:var(--text); text-decoration:underline; }
+
+.ct-form{ display:grid; gap:14px; }
+.ct-form label{ display:grid; gap:6px; font-size:.88rem; font-weight:600; }
+.ct-form em{ font-style:normal; font-weight:400; color:var(--muted); }
+.ct-form input, .ct-form textarea{
+  width:100%; padding:.75rem .9rem; border-radius:12px; border:1px solid var(--surface); background:var(--card);
+  color:var(--text); font:inherit; font-weight:400; resize:vertical;
+}
+.ct-form input:focus-visible, .ct-form textarea:focus-visible{ outline:2px solid var(--accent-b); outline-offset:2px; border-color:var(--ring); }
+.ct-submit{ justify-content:center; font:inherit; font-weight:600; }
+.ct-submit:focus-visible{ outline:2px solid var(--accent-b); outline-offset:3px; }
+.ct-help{ margin:0; font-size:.82rem; color:var(--muted); }
+.ct-closing{ margin:26px 0 0; color:var(--muted); font-size:.95rem; }
+
+@media (max-width: 860px){
+  .ct-grid{ grid-template-columns:1fr; }
+}
+@media (max-width: 760px){
+  .ct-hero{ padding-top:44px; }
+  .ct-card{ padding:20px; }
+}
